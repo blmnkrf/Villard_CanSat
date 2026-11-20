@@ -1,0 +1,166 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Helvetica;
+    background: #f5f7fa;
+    color: #233d69;
+}
+
+
+.header {
+    width: 100%;
+    padding: 25px 6%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sam-logo {
+    width: 220px;
+    max-width: 35%;
+}
+
+.cansat-logo {
+    width: 100px;
+    max-width: 15%;
+}
+
+
+.hero {
+    max-width: 1200px;
+    margin: 70px auto 120px;
+    padding: 0 30px;
+
+    display: flex;
+    align-items: center;
+    gap: 70px;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1.1;
+    margin-bottom: 30px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: #4d5d78;
+}
+
+.hero-image {
+    width: 400px;
+    max-width: 45%;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(35, 61, 105, 0.15);
+}
+
+.team {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px 100px;
+}
+
+.team h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px 30px;
+}
+
+.grid-item {
+    text-align: center;
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(35, 61, 105, 0.08);
+}
+
+.grid-item img {
+    width: 200px;
+    height: 200px;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 25%;
+    border: 4px solid rgb(50, 50, 50);
+    margin-bottom: 20px;
+}
+
+.grid-item h3 {
+    font-size: 1.3rem;
+    color: #233d69;
+}
+
+
+/* TABLETA */
+@media (max-width: 900px) {
+
+    .hero {
+        gap: 40px;
+    }
+
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* TELIK */
+@media (max-width: 600px) {
+
+    .header {
+        padding: 20px;
+    }
+
+    .sam-logo {
+        width: 160px;
+    }
+
+    .cansat-logo {
+        width: 70px;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+
+        margin-top: 40px;
+        margin-bottom: 80px;
+    }
+
+    .hero-image {
+        max-width: 100%;
+        width: 350px;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .team h2 {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+}
