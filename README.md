@@ -6,6 +6,9 @@ Repo for our CanSat team. Here you can find all files related to the Villard tea
 * ~~Air pressure measurement~~
 * ~~Data sending through LoRa modules~~
 * ~~Calculating an approximate distance from the receiver LoRa to the satellite~~
+* Parachute measurement calculation
+* Parachute sewing
+* PCB
 
 ## Secondary objective
 * Gamma radiation measurement
@@ -15,3 +18,8 @@ Repo for our CanSat team. Here you can find all files related to the Villard tea
 * ~~Air humidity measurement~~
 * ~~Altitude calculation~~
 * ~~Buzzer in the receiver LoRa that gets louder the closer you get to the satellite~~
+
+## Perpetual work in progress
+* Website
+* 3D Model
+* Documentation
