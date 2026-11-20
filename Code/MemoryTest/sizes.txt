@@ -1,0 +1,4 @@
+Temperature size: 592b;
+Pressure size: 1298b;
+Radiation size: 3190b;
+TOTAL SIZE: 5080b
