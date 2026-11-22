@@ -17,7 +17,7 @@ Repo for our CanSat team. Here you can find all files related to the Villard tea
 * Satellite maglev suspension
 * ~~Air humidity measurement~~
 * ~~Altitude calculation~~
-* ~~Buzzer in the receiver LoRa that gets louder the closer you get to the satellite~~
+* Buzzer in the receiver LoRa that gets louder the closer you get to the satellite
 
 ## Perpetual work in progress
 * Website
