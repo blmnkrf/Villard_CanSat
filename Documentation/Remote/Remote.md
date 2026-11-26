@@ -20,3 +20,4 @@ Another great idea of ours was adding a BMI sensor. The person will move, and wh
 * A turn on/off button for the buzzer (which indicates through sound how far away you are from the satellite)
 * A small screen that displays how far away you are from the satellite
 * LEDs that tell you if you are looking at the satellite (kind of like a compass)
+* BMI sensor that locks in the correct direction towards the satellite
