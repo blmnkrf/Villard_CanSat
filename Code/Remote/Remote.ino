@@ -13,12 +13,15 @@ constexpr int LORA_MISO = 5;
 constexpr int LORA_MOSI = 6;
 constexpr int LORA_NSS = 7;
 
+constexpr int BUZZER_PIN = 3; // The pin that the buzzer is connected to
+float buzzerDelay = 1000; // Initial delay in ms
+
 constexpr int LORA_BAND = 868E6; // The radio band that our module will use; Change this and you go to jail :)
 
 constexpr float ONE_METER_RSSI = -44.0f; // A constant that we calculated. It is the RSSI in dBm
 constexpr int ENVIRONMENTAL_CONSTANT = 2.3; // 2 - free space; 2.7-3.5 - with obstacles; 3-5 - indoor
 
-bool loraConnected = true; // State variable, in case the LoRa isnt't connected properly 
+bool loraConnected = true; // State variable, in case the LoRa isnt't connected properly
 
 void setup() {
   // Initialize the ESP at Serial por 115200, and printing that a new session started
@@ -28,6 +31,10 @@ void setup() {
 
   SPI.begin(LORA_SCK, LORA_MISO, LORA_MOSI, LORA_NSS); // Setting up the SPI protocol for the LoRa module
   LoRa.setPins(LORA_NSS, LORA_RESET, LORA_DIO0); // Setting the LoRa's pins
+
+  // Buzzer setup
+  pinMode(BUZZER_PIN, OUTPUT);
+  digitalWrite(BUZZER_PIN, LOW);
 
   if (!LoRa.begin(LORA_BAND)) { // If the LoRa isn't initalized properly, give an error
     Serial.println("LoRa's wiring ain't working!");
@@ -55,7 +62,18 @@ void loop() {
 
       float signalStrength = LoRa.packetRssi(); // Get the RSSI (signal strength) (might need to use RSSM_dBm = Rssi - 157 for dBm conversion)
       float distance = pow(10, ((ONE_METER_RSSI - (signalStrength)) / (10 * ENVIRONMENTAL_CONSTANT))); // Logarithmic distance calculation using signal strength
-
+      
+      if (distance > 1000) { // If you're too far away, turn off the buzzer
+        digitalWrite(BUZZER_PIN, LOW);
+      }
+      else {
+        digitalWrite(BUZZER_PIN, HIGH);
+        
+        buzzerDelay = distance * 50; // The closer you are, the faster it beeps
+        delay(buzzerDelay);
+        digitalWrite(BUZZER_PIN, LOW);
+        delay(buzzerDelay);
+      }
       // Signal strength classification:
       // -30 - -60 -> excelent
       // -70 - -90 -> good
