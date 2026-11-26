@@ -18,8 +18,8 @@ float buzzerDelay = 1000; // Initial delay in ms
 
 constexpr int LORA_BAND = 868E6; // The radio band that our module will use; Change this and you go to jail :)
 
-constexpr float ONE_METER_RSSI = -44.0f; // A constant that we calculated. It is the RSSI in dBm
-constexpr int ENVIRONMENTAL_CONSTANT = 2.3; // 2 - free space; 2.7-3.5 - with obstacles; 3-5 - indoor
+constexpr float ONE_METER_RSSI = -44.0f; // A constant that we measured. It is the RSSI in dBm
+constexpr float ENVIRONMENTAL_CONSTANT = 1.84f
 
 bool loraConnected = true; // State variable, in case the LoRa isnt't connected properly
 
