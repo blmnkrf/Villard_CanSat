@@ -27,3 +27,4 @@ The code is integrated into the `UnifiedSenderScript.ino`
 2 88 19 8 1
 ```
 Each packet is separated by newline and all entries in a packet by space.
+* The sender only starts sending packets after it has reached a maximum height $\mathrm{h}_{max}$, which is constantly computed by comparing the previous $\mathrm{h}_{max}$ with the current height of the satellite.
