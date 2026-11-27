@@ -5,42 +5,32 @@ import os
 
 # Print out what is being tested
 print("STARTING TEST")
-print("TESTING WITH VARIABLES:")
-print("1.AIR TEMPERATURE")
-print("2.AIR PRESSURE")
-print("3.GAMME RADIATION\n")
+print("1.Temperature")
+print("2.Temperature")
+print("3.Humidity")
+print("4.Sea altitude")
+print("5.Ground altitude")
+#print("6.Radiation")
 
-SECONDS = 75 # how long will the test run
-STEP = 0.5 # in seconds
+seconds = 75 # how long is the satellite in the air
+step = 0.5 # how many times per second to send info
 
-# Countdown function, which simply sleeps for STEP seconds and then dumps random values into the files, which mimics the data the CanSat would actually collect
-def countdown(seconds):
-    while seconds > 0:
-        time.sleep(STEP)
-        seconds -= STEP
-        print(f"{seconds} LEFT")
+data = ""
+packets = 75 / step # calculate packet count
+while packets > 0:
+    # Generate random values for each thing we are measuring
+    temperature = random.uniform(-40, 85)
+    pressure = random.uniform(300, 1100)
+    humidity = random.uniform(0, 100)
+    seaAltitude = random.uniform(-500, 9000)
+    groundAltitude = random.uniform(-500, 9000)
+    #radiation = random.uniform(0, 100)
 
-        with open("temperature.txt", "+a") as f:
-            f.write(f"{random.randrange(-20, 50)}K\n")
-        
-        with open("pressure.txt", "+a") as f:
-            f.write(f"{random.randrange(70000, 150000)}Pa\n")
-        
-        with open("radiation.txt", "+a") as f:
-            f.write(f"{random.random()}Sv\n")
+    # append to the data string
+    data += f"{temperature:.2f} {pressure:.2f} {humidity:.2f} {seaAltitude:.2f} {groundAltitude:.2f} \n"
+    
+    packets -= 1
 
-    print("\n")
-
-countdown(SECONDS) # Call the function
-
-# Get the individual file sized and then add them up together
-temp_size = os.path.getsize("temperature.txt")
-pressure_size = os.path.getsize("pressure.txt")
-radiation_size = os.path.getsize("radiation.txt")
-TOTAL_SIZE = temp_size + pressure_size + radiation_size
-
-print(f"TOTAL FILE SIZE: {TOTAL_SIZE}") # Print out the total size of the files
-
-# Dump the results into a new file
-with open("sizes.txt", "w") as f:
-    f.write(f"Temperature size: {temp_size}b;\nPressure size: {pressure_size}b;\nRadiation size: {radiation_size}b;\nTOTAL SIZE: {TOTAL_SIZE}b");
+# dump it all into a file
+with open("./Code/MemoryTest/data_v1.txt", "w") as f:
+    f.write(data)
