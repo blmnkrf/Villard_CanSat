@@ -21,3 +21,11 @@ Another great idea of ours was adding a BMI sensor. The person will move, and wh
 * A small screen that displays how far away you are from the satellite
 * LEDs that tell you if you are looking at the satellite (kind of like a compass)
 * BMI sensor that locks in the correct direction towards the satellite
+
+
+# Display Type and connection
+* OLED Displays (0.96" or 1.3", 128x64) i2c
+* SCL - D     (ESP32)
+* SDA - D     (ESP32)
+* VCC - 3.3V  (ESP32)
+* GND - GND   (ESP32)
