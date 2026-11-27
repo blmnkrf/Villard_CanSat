@@ -10,13 +10,13 @@ print("2.Temperature")
 print("3.Humidity")
 print("4.Sea altitude")
 print("5.Ground altitude")
-#print("6.Radiation")
+print("6.Radiation")
 
 seconds = 75 # how long is the satellite in the air
 step = 0.5 # how many times per second to send info
 
 data = ""
-packets = 75 / step # calculate packet count
+packets = seconds / step # calculate packet count
 while packets > 0:
     # Generate random values for each thing we are measuring
     temperature = random.uniform(-40, 85)
@@ -24,10 +24,10 @@ while packets > 0:
     humidity = random.uniform(0, 100)
     seaAltitude = random.uniform(-500, 9000)
     groundAltitude = random.uniform(-500, 9000)
-    #radiation = random.uniform(0, 100)
+    radiation = random.uniform(0, 100)
 
     # append to the data string
-    data += f"{temperature:.2f} {pressure:.2f} {humidity:.2f} {seaAltitude:.2f} {groundAltitude:.2f} \n"
+    data += f"{temperature:.2f} {pressure:.2f} {humidity:.2f} {seaAltitude:.2f} {groundAltitude:.2f} {radiation:.2f}\n"
     
     packets -= 1
 
