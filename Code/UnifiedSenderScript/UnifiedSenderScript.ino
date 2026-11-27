@@ -81,10 +81,10 @@ void loop() {
     if (loraConnected) {
       LoRa.beginPacket(); // Start a packet
         // Have the LoRa send the information
-        LoRa.println(temperature);
-        LoRa.println(pressure);
-        LoRa.println(humidity);
-        LoRa.println(seaAltitude);
+        LoRa.print(temperature); LoRa.print(" "); 
+        LoRa.print(pressure); LoRa.print(" "); 
+        LoRa.print(humidity); LoRa.print(" "); 
+        LoRa.print(seaAltitude); LoRa.print(" "); 
         LoRa.println(groundAltitude);
       LoRa.endPacket(); // End the packet
 

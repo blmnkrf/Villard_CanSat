@@ -24,3 +24,11 @@ Repo for our CanSat team. Here you can find all files related to the Villard tea
 * Website
 * 3D Model
 * Documentation
+
+# Meet our team
+* Cristian Zamăneagră (blmnkrf): Programmer, Engineer, Website Builder, Social Media Editor, PCB Designer, Documenter
+* Maxim Ursu (Maxksr): Programmer, Engineer, PCB Designer
+* Daniel Mînzu (PublicStaticIntMain): Engineer, PCB Designer
+* Sebastian Iavorschi (QW3RD1): 3D Modeller, Engineer
+* Patricia Donciu: Social Media Manager
+* David Roșca: Documenter
