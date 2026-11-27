@@ -20,3 +20,10 @@ The code is integrated into the `UnifiedSenderScript.ino`
 * Initialization is done in the `start` function with the lines `SPI.begin(LORA_SCK, LORA_MISO, LORA_MOSI, LORA_NSS);` and `LoRa.setPins(LORA_NSS, LORA_RESET, LORA_DIO0);`.
 * There are of course protections in case the LoRa is wired incorrectly, so that the ESP32 C3 supermini won't try to send stuff without a LoRa.
 * Then, the code starts packets with `LoRa.beginPacket();` and then sends information over radio waves with `LoRa.println();`
+* The packets it sends look like this
+```
+15 24 21 8 1
+21 53 1 5 8
+2 88 19 8 1
+```
+Each packet is separated by newline and all entries in a packet by space.
